@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--nav bar-->
+<nav th:replace="_fragments :: menu(0)" class="ui attached segment m-padded-tb-mini m-top-color m-top-color m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class = "ui header m-bottom-t-color item">Byte by Byte</h2>
+            <a href ="#" class="m-item item m-mobile-hide "><i class="home icon"></i>Main page</a>
+            <a href ="#" class="m-item item m-mobile-hide "><i class="idea icon"></i>Categories</a>
+            <a href ="#" class="m-item item m-mobile-hide "><i class="tags icon"></i>Tags</a>
+            <a href ="#" class="m-item item m-mobile-hide "><i class="folder icon"></i>Archives</a>
+            <a href ="#" class="m-item item m-mobile-hide "><i class="info icon"></i>About me</a>
+            <div class="m-item right item m-mobile-hide">
+                <div class="ui icon input ">
+                    <input type="text" placeholder="Search">
+                    <i class="search icon m-mid-top-t-color m-mid-bottom-color"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle icon button m-right-top m-mobile-show m-mid-bottom-color">
+        <i class="sidebar icon m-mid-top-t-color"></i>
+    </a>
+</nav>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="m-container-small m-padded-tb-massive">
+    <div class="ui error message m-padded-tb-large">
+        <h2>404</h2>
+        <p>Sorry, the page you are looking for does not exist</p>
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive m-top-color">
+    <div class="ui center aligned container m-top-color">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="/images/WechatQR.jpg" class="ui rounded image" alt="" style="width: 100px ;">
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Newest Blog</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class = "item">User Story</a>
+                    <a href="#" class = "item">User Story</a>
+                    <a href="#" class = "item">User Story</a>
+                </div>
+            </div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Contact me</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class = "item">Email: jiashuli.jerry@gmail.com</a>
+                    <a href="#" class = "item">Github: https://github.com/jli130</a>
+                    <a href="#" class = "item">Instagram: jerryli5284</a>
+                </div>
+            </div>
+
+            <div class="six wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Personal Motivation</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">This is my Personal Blog. I will be sharing anything related to Programing, Leetcode and Interview Experiences. Hoping
+                    able to help anyone visiting.</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-spaced m-opacity-mini">Copyright &copy;2024 Designed by Jiashu Li</p>
+    </div>
+
+
+</footer>
+
+</body>
+</html>

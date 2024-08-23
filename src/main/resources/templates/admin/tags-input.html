@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/html">
+
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Tag</title>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+
+<!--nav bar-->
+<nav th:replace="admin/_fragments :: menu(3)" class="ui attached segment m-padded-tb-mini m-top-color m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class = "ui header m-bottom-t-color item">Manager BackEnd</h2>
+            <a href ="#" class=" m-item item m-mobile-hide "><i class="home icon"></i>Main page</a>
+            <a href ="#" class="m-item item m-mobile-hide "><i class="idea icon"></i>Categories</a>
+            <a href ="#" class="active m-item item m-mobile-hide "><i class="tags icon"></i>Tags</a>
+            <div class="right menu m-item m-mobile-hide">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img src="../../static/images/photo-1575936123452-b67c3203c357.avif" class="ui avatar image">
+                        Jiashu Li
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#" class="item">Log out</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="ui menu toggle icon button m-right-top m-mobile-show m-mid-bottom-color">
+        <i class="sidebar icon m-mid-top-t-color"></i>
+    </a>
+</nav>
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/admin/tags/input}" class="active m-bottom-color item">New</a>
+            <a href="#" th:href="@{/admin/tags}" class=" item">List</a>
+        </div>
+    </div>
+</div>
+
+<!--Mid Content-->
+<div class="m-container-small m-padded-tb-big">
+    <div class="ui container">
+        <form action="#" method="post" th:object="${tag}" th:action="*{id}==null ? @{/admin/tags} : @{/admin/tags/{id}(id=*{id})}"  class="ui form" >
+            <input type="hidden" name="id" th:value="*{id}">
+            <div class="required field">
+                <div class="ui left labeled input">
+                    <label class="ui m-top-t-color basic label">Name</label>
+                    <input type="text" name="name" placeholder="Tag Name" th:value="*{name}">
+                </div>
+            </div>
+
+            <div class="ui error message"></div>
+
+
+
+    <!--/*/
+        <div class="ui negative message" th:if="${#fields.hasErrors('name')}">
+                <i class="close icon"></i>
+                <div class="header">Check Failed</div>
+                <p th:errors="*{name}">Info provided can not be processed</p>
+        </div>
+    /*/-->
+
+
+            <div class="ui right aligned container">
+                <button type="button" class="ui button" onclick="window.history.go(-1)">Back</button>
+                <button class="ui m-mid-bottom-color submit button">Submit</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js"></script>   
+<script src="http://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<script src="../../static/lib/editormd/editormd.min.js"></script>
+<script>
+
+
+    $('.menu.toggle').click(function(){
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+        on:'hover'
+    });
+
+    $('.ui.form').form({
+        fields : {
+            title : {
+                identifier: 'name11',
+                rules : [{
+                    type: 'empty',
+                    prompt: 'Please enter a name for the tag'
+                }]
+            }
+        }
+    });
+
+</script>
+
+
+</body>
+</html>
